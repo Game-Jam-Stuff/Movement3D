@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4ekv0x6nttjq"]
+
+[ext_resource type="Script" path="res://Player/Mage.cs" id="1_lh0gt"]
+[ext_resource type="PackedScene" uid="uid://bctu3rlqrp73w" path="res://rig.tscn" id="1_q7ndq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uw3k5"]
+radius = 0.982553
+height = 3.12626
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_lh0gt")
+
+[node name="Rig" parent="." instance=ExtResource("1_q7ndq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29247, 0)
+shape = SubResource("CapsuleShape3D_uw3k5")
+
+[node name="LookTarget" type="Node3D" parent="."]

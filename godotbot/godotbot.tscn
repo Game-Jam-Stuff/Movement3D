@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://gfaft4aa1n10"]
+
+[ext_resource type="PackedScene" uid="uid://d4dfwad87x4gr" path="res://godotbot/model/godotbot.glb" id="1_43w3l"]
+[ext_resource type="Texture2D" uid="uid://cfm6qqd1rw8gb" path="res://godotbot/textures/godotbot_albedo.png" id="2_ksl5l"]
+[ext_resource type="Texture2D" uid="uid://cfsjey5yy1a11" path="res://godotbot/textures/godotbot_roughness.png" id="3_cf2ac"]
+[ext_resource type="Texture2D" uid="uid://dvrk7yako2fjc" path="res://godotbot/textures/godotbot_normals.png" id="4_jae0o"]
+[ext_resource type="AnimationLibrary" uid="uid://ds55g3e7kh4gi" path="res://godotbot/animations/godotbot_idle.glb" id="5_06t8b"]
+[ext_resource type="AnimationLibrary" uid="uid://d2mj68p1feed4" path="res://godotbot/animations/godotbot_walk.glb" id="6_fvo4j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_byhdn"]
+albedo_texture = ExtResource("2_ksl5l")
+metallic = 0.5
+metallic_texture = ExtResource("3_cf2ac")
+roughness = 0.38
+roughness_texture = ExtResource("3_cf2ac")
+normal_enabled = true
+normal_texture = ExtResource("4_jae0o")
+
+[node name="godotbot" instance=ExtResource("1_43w3l")]
+
+[node name="Armature" parent="." index="0"]
+transform = Transform3D(-0.258517, -2.26003e-08, 9.87889e-16, -3.94134e-24, -1.13001e-08, -0.258517, 2.26003e-08, -0.258517, 1.13001e-08, 0.000519781, -0.0254471, 0.0422252)
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(-0.0407149, -0.0350232, -1.22612)
+bones/0/rotation = Quaternion(-0.0402766, -0.698422, 0.713583, 0.0372094)
+bones/1/rotation = Quaternion(-0.00738303, -0.000850302, 0.0178446, 0.999813)
+bones/2/rotation = Quaternion(0.0346985, 0.000624436, 0.00398509, 0.99939)
+bones/3/rotation = Quaternion(0.0346951, 0.000709959, 0.00401411, 0.99939)
+bones/4/rotation = Quaternion(0.0253049, -0.000965433, 0.00648793, 0.999658)
+bones/5/rotation = Quaternion(0.0624884, -0.0356032, 0.103543, 0.992021)
+bones/7/rotation = Quaternion(0.594673, -0.354148, 0.586705, 0.420382)
+bones/8/rotation = Quaternion(0.440063, 0.161048, 0.0701888, 0.880614)
+bones/9/rotation = Quaternion(0.000163647, 0.000580195, 0.072154, 0.997393)
+bones/11/rotation = Quaternion(0.602064, 0.361531, -0.578258, 0.415249)
+bones/12/rotation = Quaternion(0.488668, 0.00767946, 0.0555621, 0.870665)
+bones/13/rotation = Quaternion(0.000278664, -0.000627873, -0.128489, 0.991711)
+bones/15/rotation = Quaternion(0.0690081, -0.103326, 0.987344, 0.0985584)
+bones/16/rotation = Quaternion(0.355618, 0.0184842, 0.056415, 0.932744)
+bones/17/rotation = Quaternion(-0.064088, 0.816243, -0.573359, 0.0299968)
+bones/18/rotation = Quaternion(0.38661, 0.00502004, -0.00222468, 0.922227)
+bones/20/rotation = Quaternion(-0.0877546, -0.01007, 0.990278, -0.107458)
+bones/21/rotation = Quaternion(0.291043, 0.0503223, -0.0694589, 0.952857)
+bones/22/rotation = Quaternion(0.067557, 0.822092, -0.564254, -0.0349108)
+bones/23/rotation = Quaternion(0.397808, -0.00528995, 0.00242061, 0.91745)
+
+[node name="godotbot_godotbot_0" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00147376, -0.000295877, 0.00472494)
+material_override = SubResource("StandardMaterial3D_byhdn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"godotbot_idle": ExtResource("5_06t8b"),
+"godotbot_walk": ExtResource("6_fvo4j")
+}
+autoplay = "godotbot_idle/Idle1"
